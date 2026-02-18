@@ -26,3 +26,11 @@ function operate(a,x,b) {
             return divideNums(a,b);
     }
 }
+
+const numArray = [1,2,3,4,5,6,7,8,9,0];
+const operatorArray = ['=','+','-','*','/'];
+
+body = document.querySelector("body");
+calcDisplay = document.querySelector(".display");
+numPad = document.querySelector(".numPad");
+operatorPad = document.querySelector(".operatorPad");
