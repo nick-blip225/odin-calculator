@@ -13,3 +13,16 @@ function multiplyNums(a,b) {
 function divideNums(a,b) {
     return Math.floor(a / b);
 }
+
+function operate(a,x,b) {
+    switch (x) {
+        case '+':
+            return addNums(a,b);
+        case '-':
+            return subtractNums(a,b);
+        case '*':
+            return multiplyNums(a,b);
+        case '/':
+            return divideNums(a,b);
+    }
+}
