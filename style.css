@@ -1,0 +1,8 @@
+body {
+    height: 800px;
+    display: flex;
+}
+
+.title {
+    background-color: aquamarine;
+}
