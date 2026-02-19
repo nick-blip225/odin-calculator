@@ -48,3 +48,21 @@ body.appendChild(calcDisplay);
 body.appendChild(buttonPad);
 buttonPad.appendChild(numPad);
 buttonPad.appendChild(operatorPad);
+
+//create numPad
+let numCount = 0;
+while (numCount < numArray.length) {
+    numRow = document.createElement("div");
+    numRow.classList.add("numRow");
+    numPad.appendChild(numRow);
+    for (let i = 0; i < 3; i++) {
+        if (numArray[numCount] === undefined) {
+            continue;
+        }
+        numButton = document.createElement("button");
+        numButton.classList.add("numButton");
+        numButton.textContent = `${numArray[numCount]}`;
+        numRow.appendChild(numButton);
+        numCount++;
+    }
+}
