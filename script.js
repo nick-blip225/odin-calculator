@@ -66,3 +66,13 @@ while (numCount < numArray.length) {
         numCount++;
     }
 }
+
+// create operatorPad
+let operatorCount = 0;
+while (operatorCount < operatorArray.length) {
+    operatorButton = document.createElement("button");
+    operatorButton.classList.add("operatorButton");
+    operatorButton.textContent = `${operatorArray[operatorCount]}`;
+    operatorPad.appendChild(operatorButton);
+    operatorCount++;
+}
