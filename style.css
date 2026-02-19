@@ -1,8 +1,16 @@
 body {
-    height: 800px;
-    display: flex;
+    background-color: bisque;
 }
 
 .title {
     background-color: aquamarine;
+}
+
+.buttonPad {
+    display: flex;
+}
+
+.operatorPad {
+    display: flex;
+    flex-direction: column-reverse;
 }

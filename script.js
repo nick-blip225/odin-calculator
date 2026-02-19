@@ -28,7 +28,7 @@ function operate(a,x,b) {
 }
 
 const numArray = [1,2,3,4,5,6,7,8,9,0];
-const operatorArray = ['=','+','-','*','/'];
+const operatorArray = ['=','+','-','*','/','Clear'];
 
 body = document.querySelector("body");
 titleBar = document.createElement("div");
