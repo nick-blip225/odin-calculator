@@ -31,6 +31,20 @@ const numArray = [1,2,3,4,5,6,7,8,9,0];
 const operatorArray = ['=','+','-','*','/'];
 
 body = document.querySelector("body");
-calcDisplay = document.querySelector(".display");
-numPad = document.querySelector(".numPad");
-operatorPad = document.querySelector(".operatorPad");
+titleBar = document.createElement("div");
+titleBar.setAttribute("class", "title");
+titleBar.textContent = "Odin Calculator";
+calcDisplay = document.createElement("div");
+calcDisplay.setAttribute("class", "display");
+buttonPad = document.createElement("div");
+buttonPad.setAttribute("class", "buttonPad");
+numPad = document.createElement("div");
+numPad.setAttribute("class", "numPad");
+operatorPad = document.createElement("div");
+operatorPad.setAttribute("class", "operatorPad");
+
+body.appendChild(titleBar);
+body.appendChild(calcDisplay);
+body.appendChild(buttonPad);
+buttonPad.appendChild(numPad);
+buttonPad.appendChild(operatorPad);
