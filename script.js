@@ -70,6 +70,11 @@ operatorPad.addEventListener("click", function(event) {
             numB = '';
             storedOperator = '';
         }
+        else if (newOperator === '=') {
+            numA = operate(numA, storedOperator, numB);
+            updateDisplay(numA);
+            numB = '';
+        }
         else if (numB != '') {
             numA = operate(numA, storedOperator, numB);
             numB = '';
