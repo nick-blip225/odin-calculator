@@ -15,6 +15,11 @@ function divideNums(a,b) {
 }
 
 function operate(a,x,b) {
+    a = parseInt(a);
+    b = parseInt(b);
+    if (isNaN(a)) {
+        return b;
+    }
     switch (x) {
         case '+':
             return addNums(a,b);
@@ -24,10 +29,12 @@ function operate(a,x,b) {
             return multiplyNums(a,b);
         case '/':
             return divideNums(a,b);
+        case 'Clear':
+            return 0;
     }
 }
 
-const numArray = [1,2,3,4,5,6,7,8,9,0];
+const numArray = ['1','2','3','4','5','6','7','8','9','0'];
 const operatorArray = ['=','+','-','*','/','Clear'];
 
 body = document.querySelector("body");
@@ -36,12 +43,46 @@ titleBar.setAttribute("class", "title");
 titleBar.textContent = "Odin Calculator";
 calcDisplay = document.createElement("div");
 calcDisplay.setAttribute("class", "display");
+calcDisplay.textContent = ""; // initial display
 buttonPad = document.createElement("div");
 buttonPad.setAttribute("class", "buttonPad");
+
 numPad = document.createElement("div");
 numPad.setAttribute("class", "numPad");
+numPad.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON") {
+        updateNumber(event.target.textContent);
+        updateDisplay(numB);
+        console.log(event.target.textContent);
+        console.log(numA, numB);
+    }
+});
+
 operatorPad = document.createElement("div");
 operatorPad.setAttribute("class", "operatorPad");
+operatorPad.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON") {
+        let newOperator = event.target.textContent;
+        if (newOperator === 'Clear') {
+            numA = operate(numA, newOperator, numB);
+            updateDisplay(numA);
+            numA = '';
+            numB = '';
+            storedOperator = '';
+        }
+        else if (numB != '') {
+            numA = operate(numA, storedOperator, numB);
+            numB = '';
+            updateDisplay(numA);
+            console.log(storedOperator, newOperator);
+            storedOperator = newOperator;
+        }else {
+            storedOperator = newOperator;
+        }
+        console.log(event.target.textContent);
+        console.log(numA, numB, newOperator, storedOperator);
+    }
+});
 
 body.appendChild(titleBar);
 body.appendChild(calcDisplay);
@@ -75,4 +116,17 @@ while (operatorCount < operatorArray.length) {
     operatorButton.textContent = `${operatorArray[operatorCount]}`;
     operatorPad.appendChild(operatorButton);
     operatorCount++;
+}
+
+let numA = '';
+let numB = '';
+let newOperator = '';
+let storedOperator = '';
+
+function updateNumber(b) {
+    numB += b;
+}
+
+function updateDisplay(text) {
+    calcDisplay.textContent = `${text}`;
 }
