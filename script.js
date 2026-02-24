@@ -11,7 +11,7 @@ function multiplyNums(a,b) {
 }
 
 function divideNums(a,b) {
-    return Math.floor(a / b);
+    return (a / b).toFixed(2);
 }
 
 function operate(a,x,b) {
