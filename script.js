@@ -11,7 +11,11 @@ function multiplyNums(a,b) {
 }
 
 function divideNums(a,b) {
-    return (a / b).toFixed(2);
+    if (b == 0) {
+        return 'Cannot divide by 0';
+    }else{
+        return (a / b).toFixed(2);
+    }
 }
 
 function operate(a,x,b) {
