@@ -47,7 +47,7 @@ titleBar.setAttribute("class", "title");
 titleBar.textContent = "Odin Calculator";
 calcDisplay = document.createElement("div");
 calcDisplay.setAttribute("class", "display");
-calcDisplay.textContent = ""; // initial display
+calcDisplay.textContent = "0"; // initial display
 buttonPad = document.createElement("div");
 buttonPad.setAttribute("class", "buttonPad");
 
@@ -75,7 +75,7 @@ operatorPad.addEventListener("click", function(event) {
             storedOperator = '';
         }
         else if (newOperator === '=') {
-            if (numA != '' && numB != '' && storedOperator != '' && storedOperator != '=') {
+            if (isNotEmpty(numA) && isNotEmpty(numB) && isNotEmpty(storedOperator) && storedOperator != '=') {
                 numA = operate(numA, storedOperator, numB);
                 updateDisplay(numA);
                 numB = '';
@@ -83,7 +83,7 @@ operatorPad.addEventListener("click", function(event) {
                 return;
             }
         }
-        else if (numB != '') {
+        else if (isNotEmpty(numB)) {
             numA = operate(numA, storedOperator, numB);
             numB = '';
             updateDisplay(numA);
@@ -142,4 +142,8 @@ function updateNumber(b) {
 
 function updateDisplay(text) {
     calcDisplay.textContent = `${text}`;
+}
+
+function isNotEmpty(value) {
+    return value != '' ? true : false;
 }
