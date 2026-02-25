@@ -1,16 +1,58 @@
+:root {
+    --calculator-width: 150px;
+}
+
 body {
     background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title {
-    background-color: aquamarine;
+    background-color: rgb(123, 189, 167);
+    width: var(--calculator-width + 100);
+    text-align: center;
+    font-size: 25px;
+}
+
+.display {
+    font-size: 50px;
+    border: 2px solid black;
+    border-radius: 1em;
+    width: var(--calculator-width);
+    text-align: center;
 }
 
 .buttonPad {
     display: flex;
 }
 
+.numPad {
+    height: 300px;
+    width: var(--calculator-width);
+    display: flex;
+    flex-direction: column;
+}
+
+.numRow {
+    display: flex;
+    flex: 1;
+    gap: 2px;
+}
+
 .operatorPad {
     display: flex;
     flex-direction: column-reverse;
+}
+
+.numButton,
+.operatorButton {
+    flex: 1;
+    border-radius: 1em;
+}
+
+.numButton:hover,
+.operatorButton:hover {
+    background-color: aqua;
 }
